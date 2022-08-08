@@ -1,6 +1,10 @@
 package testing;
 
 import static io.restassured.RestAssured.*;
+
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
 import org.testng.annotations.Test;
 
 public class RestAssured {
@@ -12,6 +16,10 @@ public class RestAssured {
 
 		getResponseBody();
 		getResponseStatus();
+		getResponseHeaders();
+		getResponseTime();
+		getResponseContentType();
+//		getSpecificPartOfResponseBody();
 	}
 
 	// This will fetch the response body as is and log it. given and when are
@@ -32,4 +40,30 @@ public class RestAssured {
 		given().when().get(url).then().assertThat().statusCode(200);
 	}
 
+	public static void getResponseHeaders() {
+		System.out.println("The headers in the response " + get(url).then().extract().headers());
+	}
+
+	public static void getResponseTime() {
+		System.out.println(
+				"The time taken to fetch the response " + get(url).timeIn(TimeUnit.MILLISECONDS) + " milliseconds");
+	}
+
+	public static void getResponseContentType() {
+		System.out.println("The content type of response " + get(url).then().extract().contentType());
+	}
+
+	public static void getSpecificPartOfResponseBody() {
+
+		ArrayList<String> amounts = when().get(url).then().extract().path("result.statements.AMOUNT");
+//		System.out.println(when().get(url).then().extract().path("result.statements.AMOUNT"));
+		int sumOfAll = 0;
+		for (String a : amounts) {
+
+			System.out.println("The amount value fetched is " + a);
+			sumOfAll = sumOfAll + Integer.valueOf(a);
+		}
+		System.out.println("The total amount is " + sumOfAll);
+
+	}
 }
