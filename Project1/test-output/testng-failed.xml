@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testing.RestAssured">
+      <class name="testing.Activity1">
         <methods>
           <include name="test"/>
+          <include name="exit"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- testing.RestAssured -->
+      </class> <!-- testing.Activity1 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -58,5 +58,35 @@
 			<version>4.4.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.epam.healenium</groupId>
+			<artifactId>healenium-web</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>5.3.0</version>
+		</dependency>
+
+
+		<!-- <dependency>
+			<groupId>com.epam.healenium</groupId>
+			<artifactId>healenium-engine</artifactId>
+			<version>1.2-RC</version>
+		</dependency> -->
+
+
 	</dependencies>
+
+	<!-- <repositories>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>bintray-epam-healenium</id>
+			<url>https://dl.bintray.com/epam/healenium</url>
+		</repository>
+	</repositories> -->
 </project>
